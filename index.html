@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OnBoard</title>  
+    <!-- Tailwind CSS via CDN -->
+<link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+  
+</head>
+
+<body class="bg-gray-50  ">
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-gray-200">
+        <div class="mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Left section: Logo or brand -->
+            <div class="flex items-center">
+                <!-- Replace with your logo image if desired -->
+                <img class="h-8" src="./brand.svg" alt="Logo" />
+            </div>
+
+            <!-- Desktop Menu (hidden on mobile) -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="./code.html" class="text-gray-700 hover:text-gray-900">Code</a>
+
+                <!-- Dropdown parent -->
+                <div class="relative group">
+                    <button class="flex items-center text-gray-700 hover:text-gray-900 focus:outline-none">
+                        <span>Resources</span>
+                        <!-- Optional: Chevron icon -->
+                        <svg class="w-4 h-4 ml-1 mt-1 text-gray-600 group-hover:text-gray-900" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.23 7.21a.75.75 0 011.06.02L10 10.6l3.71-3.38a.75.75 0 011.04 1.08l-4.24 3.88a.75.75 0 01-1.04 0L5.2 8.29a.75.75 0 01.02-1.08z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div
+                        class="absolute left-0 mt-2 w-40 bg-white border border-gray-200 rounded shadow-lg hidden group-hover:block z-10">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Blog</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Help Center</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Guides</a>
+                    </div>
+                </div>
+
+                <a href="#" class="text-gray-700 hover:text-gray-900">Pricing</a>
+            </div>
+
+            <!-- Right section: Auth links and buttons (visible on desktop) -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#" class="text-gray-700 hover:text-gray-900">Login</a>
+                <!-- "Book a demo" button -->
+                <button class="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 focus:outline-none">
+                    Book a demo
+                </button>
+                <!-- "Start free" button -->
+                <button
+                    class="border border-pink-500 text-pink-500 px-4 py-2 rounded-md hover:bg-pink-50 focus:outline-none">
+                    Start free
+                </button>
+            </div>
+
+            <!-- Hamburger Button (shown on mobile) -->
+            <div class="md:hidden">
+                <button type="button" class="text-gray-700 focus:outline-none" id="navbar-toggle"
+                    aria-label="Toggle menu">
+                    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                            d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div class="md:hidden hidden px-4 pb-4" id="mobile-menu">
+            <a href="#" class="block py-2 text-gray-700 hover:text-gray-900">Features</a>
+            <!-- "Resources" dropdown on mobile can be listed as separate links -->
+            <a href="#" class="block py-2 text-gray-700 hover:text-gray-900">Resources - Blog</a>
+            <a href="#" class="block py-2 text-gray-700 hover:text-gray-900">Resources - Help Center</a>
+            <a href="#" class="block py-2 text-gray-700 hover:text-gray-900">Resources - Guides</a>
+            <a href="#" class="block py-2 text-gray-700 hover:text-gray-900">Pricing</a>
+            <a href="#" class="block py-2 text-gray-700 hover:text-gray-900">Login</a>
+
+            <!-- "Book a demo" and "Start free" buttons on mobile -->
+            <button
+                class="w-full bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-600 mt-2 focus:outline-none">
+                Book a demo
+            </button>
+            <button
+                class="w-full border border-pink-500 text-pink-500 px-4 py-2 rounded-md hover:bg-pink-50 mt-2 focus:outline-none">
+                Start free
+            </button>
+        </div>
+    </nav>
+
+
+
+
+
+    <!-- Hero Section Container -->
+    <div class="max-w-7xl  px-4 py-16 bg-gradient-to-b from-pink-100 to-blue-100  ">
+
+        <!-- Heading -->
+        <h1 class="text-7xl font-semibold text-center text-gray-900 pt-8">
+        AI-Powered <br> <span class="block mt-2">Medical Documentation in Seconds</span>
+        </h1>
+
+        <!-- Subheading -->
+        <p class="mt-4 text-lg sm:text-xl text-center text-gray-900 max-w-sm mx-auto">
+        Automate patient documentation with AI. Generate structured medical reports in seconds and focus on patient care.
+        </p>
+
+        <!-- Call-to-action Buttons & Rating -->
+        <div class="mt-8 flex flex-col items-center">
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4">
+                <button class="bg-[#ff4274] text-white px-4 py-[5px] rounded-md hover:bg-pink-600 focus:outline-none">
+                    Try It Free
+                </button>
+                <button class="border  font-semibold px-4 py-[5px] rounded-md hover:bg-pink-50 bg-white">
+                    Start free
+                </button>
+            </div>
+            <!-- Star Rating -->
+            <!-- Star Rating -->
+            <div class="mt-4 flex items-center text-gray-900">
+
+                <div class="flex ml-2">
+                    <!-- Star icons -->
+                    <svg class="w-5 h-5 text-grey-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.54-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.05 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z" />
+                    </svg>
+                    <svg class="w-5 h-5 text-grey-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.54-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.05 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z" />
+                    </svg>
+                    <svg class="w-5 h-5 text-grey-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.54-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.05 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z" />
+                    </svg>
+                    <svg class="w-5 h-5 text-grey-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.54-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.05 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z" />
+                    </svg>
+                </div>
+                <span class="text-xl ps-4 font-semibold">4.9 Stars (500 + Reviews) </span>
+            </div>
+        </div>
+
+        <div class="relative mt-12 flex justify-center w-full">
+            <!-- Pink background shape (same size as the container), tilted and behind -->
+            <div
+                class="absolute  top-[10px] left-1/2 w-4/5 h-[515px] border rounded-xl bg-pink-200 transform -translate-x-1/2 rotate-3 z-0">
+            </div>
+
+            <!-- Actual video container on top -->
+            <div
+                class="relative z-10 w-4/5 h-[515px] border-[8px] border-pink-500 rounded-xl overflow-hidden flex justify-center items-center">
+                <!-- Loom Embed -->
+                <iframe src="https://www.loom.com/embed/9c74dc64e0944c6c9fad284b1ed709fe" frameborder="0"
+                    class="w-full h-full" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="mt-12 flex flex-col items-center space-y-6 pt-16">
+
+            <!-- Button-like label -->
+            <button class="px-5 py-2 text-sm font-medium text-white bg-black 
+                         rounded-xl transform -rotate-2 shadow-lg">
+                Trusted by Healthcare Professionals Worldwide
+            </button>
+
+            <!-- MARQUEE ROW 1 (Scrolling Left) -->
+            <div class="marquee-container h-12">
+                <!-- The scrolling track (2 sets of logos) -->
+                <div class="marquee-track marquee-left h-full items-center">
+                    <!-- First set of logos -->
+                    <div class="flex items-center space-x-8 h-full">
+                        <img src="herald.svg" alt="Logo" class="h-8 object-contain filter grayscale" />
+                        <img src="australian.svg" alt="Logo" class="h-8 object-contain filter grayscale" />
+                        <img src="herald.svg" alt="Logo" class="h-8 object-contain filter grayscale" />
+                        <img src="australian.svg" alt="Logo" class="h-8 object-contain filter grayscale" />
+                    </div>
+                    <!-- Second set of logos (identical) -->
+                    <div class="flex items-center space-x-8 h-full">
+                        <img src="herald.svg" alt="Logo" class="h-8 object-contain filter grayscale" />
+                        <img src="australian.svg" alt="Logo" class="h-8 object-contain filter grayscale" />
+                        <img src="herald.svg" alt="Logo" class="h-8 object-contain filter grayscale" />
+                        <img src="australian.svg" alt="Logo" class="h-8 object-contain filter grayscale" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- MARQUEE ROW 2 (Scrolling Right) -->
+            <div class="marquee-container h-12">
+                <div class="marquee-track marquee-right h-full items-center">
+                    <!-- First set of logos -->
+                    <div class="flex items-center space-x-8 h-full">
+                        <img src="herald.svg" alt="Logo" class="h-8 object-contain filter grayscale" />
+                        <img src="australian.svg" alt="Logo" class="h-8 object-contain filter grayscale" />
+                        <img src="herald.svg" alt="Logo" class="h-8 object-contain filter grayscale" />
+                        <img src="australian.svg" alt="Logo" class="h-8 object-contain filter grayscale" />
+                    </div>
+                    <!-- Second set of logos (identical) -->
+                    <div class="flex items-center space-x-8 h-full">
+                        <img src="herald.svg" alt="Logo" class="h-8 object-contain filter grayscale" />
+                        <img src="australian.svg" alt="Logo" class="h-8 object-contain filter grayscale" />
+                        <img src="herald.svg" alt="Logo" class="h-8 object-contain filter grayscale" />
+                        <img src="australian.svg" alt="Logo" class="h-8 object-contain filter grayscale" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="min-h-screen bg-[#3e46c5] flex items-center justify-center p-6">
+        <div class="max-w-6xl mx-auto text-center flex flex-col justify-center items-center">
+            <h1 class="text-6xl font-semibold text-white mb-4">Revolutionizing Medical Documentation</h1>
+            <p class="text-white/90 text-xl mb-12">
+            AI-powered automation for fast, accurate, and secure medical reports.
+            </p>
+
+            <!-- Use flex layout for the 3 cards -->
+            <div class="flex flex-col md:flex-row gap-6 justify-center w-full">
+
+                <!-- CARD 1 -->
+                <div class="bg-white rounded-lg p-6 shadow-lg flex flex-col w-full md:basis-1/3">
+                    <!-- Icon + Heading in one row -->
+                    <div class="flex items-center space-x-2 mb-4">
+                        <!-- Force the icon to a fixed 8x8 so all icons line up the same -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#FF4D8D]" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0
+                     002-2V7a2 2 0 00-2-2h-2
+                     M9 5a2 2 0 002 2h2a2 2 0 002-2
+                     M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                        <h2 class="text-xl font-semibold">AI-Powered Report Generation</h2>
+                    </div>
+                    <p class="text-gray-600 flex-grow">
+                        Instantly generate structured medical documentation from voice or text input using AI.
+                    </p>
+                    <a href="#"
+                        class="text-[#FF4D8D] mt-4 inline-flex items-center font-semibold hover:text-[#FF3377] transition-colors">
+                        LEARN MORE
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4
+                     4a1 1 0 010 1.414l-4 4a1 1 0
+                     01-1.414-1.414L12.586 11H5a1
+                     1 0 110-2h7.586l-2.293-2.293a1
+                     1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="bg-white rounded-lg p-6 shadow-lg flex flex-col w-full md:basis-1/3">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#FF4D8D]" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35
+                     0a1.724 1.724 0 002.573 1.066c1.543-.94
+                     3.31.826 2.37 2.37a1.724 1.724 0
+                     001.065 2.572c1.756.426 1.756 2.924 0
+                     3.35a1.724 1.724 0 00-1.066 2.573c.94
+                     1.543-.826 3.31-2.37 2.37a1.724 1.724
+                     0 00-2.572 1.065c-.426 1.756-2.924
+                     1.756-3.35 0a1.724 1.724 0
+                     00-2.573-1.066c-1.543.94-3.31-.826-2.37
+                     -2.37a1.724 1.724 0 00-1.065-2.572c
+                     -1.756-.426-1.756-2.924 0-3.35a1.724
+                     1.724 0 001.066-2.573c-.94-1.543.826
+                     -3.31 2.37-2.37.996.608 2.296.07
+                     2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0
+                     016 0z" />
+                        </svg>
+                        <h2 class="text-xl font-semibold">>Seamless Integration</h2>
+                    </div>
+                    <p class="text-gray-600 flex-grow">
+                    Easily integrate with existing EHR/EMR systems and cloud storage for a smooth workflow.
+                    </p>
+                    <a href="#"
+                        class="text-[#FF4D8D] mt-4 inline-flex items-center font-semibold hover:text-[#FF3377] transition-colors">
+                        LEARN MORE
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414
+                     0l4 4a1 1 0 010 1.414l-4 4a1
+                     1 0 01-1.414-1.414L12.586 11H5a1
+                     1 0 110-2h7.586l-2.293-2.293a1
+                     1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="bg-white rounded-lg p-6 shadow-lg flex flex-col w-full md:basis-1/3">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#FF4D8D]" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0
+                     005.636 5.636m12.728 12.728A9 9 0
+                     015.636 5.636m12.728 12.728L5.636
+                     5.636" />
+                        </svg>
+                        <h2 class="text-xl font-semibold">Secure & Compliant</h2>
+                    </div>
+                    <p class="text-gray-600 flex-grow">
+                        All data is securely stored in HIPAA-compliant cloud storage, ensuring privacy and compliance.
+                    </p>
+                    <a href="#"
+                        class="text-[#FF4D8D] mt-4 inline-flex items-center font-semibold hover:text-[#FF3377] transition-colors">
+                        LEARN MORE
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414
+                     0l4 4a1 1 0 010 1.414l-4 4a1
+                     1 0 01-1.414-1.414L12.586 11H5
+                     a1 1 0 110-2h7.586l-2.293-2.293a1
+                     1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <section class="w-full bg-[#0B0D13] py-12 md:py-16">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="mx-auto max-w-5xl text-center space-y-8">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
+                    AI-Powered Medical Documentation Trusted by Professionals
+                </h2>
+                <p class="text-gray-300 text-base md:text-lg">
+                    Our platform is built with IBM Granite AI, ensuring high accuracy and efficiency for medical note
+                    generation. Compliant with HIPAA and trusted by healthcare providers worldwide.
+                </p>
+
+                <!-- Custom Badge -->
+                <div class="bg-white rounded-xl p-6 mx-auto max-w-2xl overflow-hidden">
+                    <div class="flex items-center gap-4">
+                        <img src="badge1.png" class="w-72" alt="">
+                        <img src="badge2.png" class="w-72" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="bg-[#d8e2ff] px-6 py-16">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <h2 class="text-6xl font-semibold mb-6">How it works</h2>
+                <div class="inline-flex rounded-lg bg-white p-1 shadow-sm">
+                    <button class="px-6 py-2 rounded-lg bg-white text-gray-700 font-medium">
+                        For Healthcare Providers
+                    </button>
+                    <button class="px-6 py-2 rounded-lg bg-[#FF4D8D] text-white font-medium">
+                        For Patients & Assistants
+                    </button>
+                </div>
+            </div>
+
+            <!-- Steps -->
+            <div class="space-y-24">
+                <!-- Step 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-semibold">
+                                <span class="text-gray-900">01/</span> Secure Patient Data Input
+                            </h3>
+                            <p class="text-gray-600">
+                                Physicians can enter patient notes via voice or text, with AI-assisted structuring for
+                                fast and accurate documentation.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-[#4338CA] rounded-3xl p-8 shadow-lg">
+                        <div class="bg-white rounded-lg p-6 max-w-sm mx-auto">
+                            <div class="space-y-6">
+                                <div class="flex items-center justify-between">
+                                    <img src="/brand.svg" alt="Xonboard Logo" class="h-6" />
+                                    <div class="hidden  md:flex  justify-between items-center w-44 gap-2">
+                                        <div class="flex flex-col justify-center items-center">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <p>VERIFICATION</p>
+                                        </div>
+                                        <div class="flex flex-col justify-center items-center gap-2  pb-1">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <div class="w-8 h-2 bg-gray-200 rounded "></div>
+                                        </div>
+                                        <div class="flex flex-col justify-center items-center gap-2  pb-1">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <div class="w-8 h-2 bg-gray-200 rounded "></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-4">Verify Medical Report Access</h4>
+                                    <p class="text-sm text-gray-600 mb-4">Enter the verification code sent via SMS or email.</p>
+                                    <div class="flex gap-2 mb-4">
+                                        <input type="text" class="w-10 h-10 border rounded-lg text-center"
+                                            maxlength="1" />
+                                        <input type="text" class="w-10 h-10 border rounded-lg text-center"
+                                            maxlength="1" />
+                                        <input type="text" class="w-10 h-10 border rounded-lg text-center"
+                                            maxlength="1" />
+                                        <input type="text" class="w-10 h-10 border rounded-lg text-center"
+                                            maxlength="1" />
+                                        <input type="text" class="w-10 h-10 border rounded-lg text-center"
+                                            maxlength="1" />
+                                        <input type="text"
+                                            class="w-10 h-10 border rounded-lg text-center hidden md:flex"
+                                            maxlength="1" />
+                                    </div>
+                                    <button class="w-full bg-[#4338CA] text-white py-2 rounded-lg">Verify</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-semibold">
+                                <span class="text-gray-900">02/</span> Patient Details Collection
+                            </h3>
+                            <p class="text-gray-600">
+                                Securely collect patient details, including medical history, current medications, and allergies.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-[#4338CA] rounded-3xl p-8 shadow-lg">
+                        <div class="bg-white rounded-lg p-6 max-w-sm mx-auto">
+                            <div class="space-y-6">
+                                <div class="flex items-center justify-between">
+                                    <img src="/brand.svg" alt="Xonboard Logo" class="h-6" />
+                                    <div class="hidden  md:flex  justify-between items-center w-36 gap-2">
+                                        <div class="flex flex-col justify-center items-center gap-2  pb-1">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <div class="w-8 h-2 bg-gray-200 rounded "></div>
+                                        </div>
+                                        <div class="flex flex-col justify-center items-center">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <p>DETAILS</p>
+                                        </div>
+                                        <div class="flex flex-col justify-center items-center gap-2  pb-1">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <div class="w-8 h-2 bg-gray-200 rounded "></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-4">Enter Patient Information</h4>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1">Full name</label>
+                                            <input type="text" class="w-full border rounded-lg p-2" />
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1">Date of birth</label>
+                                            <input type="text" class="w-full border rounded-lg p-2" />
+                                        </div>
+                                        <button class="w-full bg-[#4338CA] text-white py-2 rounded-lg">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-semibold">
+                                <span class="text-gray-900">03/</span> Emergency Contact Information
+                            </h3>
+                            <p class="text-gray-600">
+                                Collect emergency contact details including name, relationship, and phone number for safety.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-[#4338CA] rounded-3xl p-8 shadow-lg">
+                        <div class="bg-white rounded-lg p-6 max-w-sm mx-auto">
+                            <div class="space-y-6">
+                                <div class="flex items-center justify-between">
+                                    <img src="/brand.svg" alt="Xonboard Logo" class="h-6" />
+                                    <div class="hidden  md:flex  justify-between items-center w-44 gap-2">
+                                        <div class="flex flex-col justify-center items-center gap-2  pb-1">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <div class="w-8 h-2 bg-gray-200 rounded "></div>
+                                        </div>
+                                        <div class="flex flex-col justify-center items-center">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <p>EMERGENCY</p>
+                                        </div>
+                                        <div class="flex flex-col justify-center items-center gap-2  pb-1">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <div class="w-8 h-2 bg-gray-200 rounded "></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-4">Add Emergency Contact</h4>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1">Emergency Contact
+                                                Details</label>
+                                            <input type="tel" class="w-full border rounded-lg p-2"
+                                                placeholder="+61 123 456 789" />
+                                        </div>
+                                        <button class="w-full bg-[#4338CA] text-white py-2 rounded-lg">Continue</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Adding to the previous steps div, after Step 3 -->
+
+                <!-- Step 4 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-semibold">
+                                <span class="text-gray-900">04/</span> Medical Insurance Details
+                            </h3>
+                            <p class="text-gray-600">
+                                Collect patient insurance details securely for seamless billing and claims processing.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-[#4338CA] rounded-3xl p-8 shadow-lg">
+                        <div class="bg-white rounded-lg p-6 max-w-sm mx-auto">
+                            <div class="space-y-6">
+                                <div class="hidden  md:flex items-center justify-between">
+                                    <img src="/brand.svg" alt="Xonboard Logo" class="h-6" />
+                                    <div class="flex  justify-between items-center w-36 gap-2">
+                                        <div class="flex flex-col justify-center items-center gap-2  pb-1">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <div class="w-8 h-2 bg-gray-200 rounded "></div>
+                                        </div>
+                                        <div class="flex flex-col justify-center items-center">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <p>TFN</p>
+                                        </div>
+                                        <div class="flex flex-col justify-center items-center gap-2  pb-1">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <div class="w-8 h-2 bg-gray-200 rounded "></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-4">Enter Insurance Information</h4>
+                                    <div class="space-y-4">
+                                        <p class="font-medium">>Health Insurance Provider</p>
+                                        <div class="flex items-center gap-2">
+                                            <input type="radio" id="hasTFN" name="tfn" checked
+                                                class="w-4 h-4 text-[#4338CA]" />
+                                            <label for="hasTFN" class="text-sm">I have a TFN</label>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1">Tax File Number</label>
+                                            <input type="text" value="30646013" class="w-full border rounded-lg p-2" />
+                                        </div>
+                                        <button class="w-full bg-[#4338CA] text-white py-2 rounded-lg">Continue</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-semibold">
+                                <span class="text-gray-900">05/</span>Payment & Billing Details
+                            </h3>
+                            <p class="text-gray-600">
+                                Securely collect patient billing information for medical services. Ensure accurate claims processing
+                                and seamless payments.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-[#4338CA] rounded-3xl p-8 shadow-lg">
+                        <div class="bg-white rounded-lg p-6 max-w-sm mx-auto">
+                            <div class="space-y-6">
+                                <div class="flex items-center justify-between">
+                                    <img src="/brand.svg" alt="Xonboard Logo" class="h-6" />
+                                    <div class="hidden  md:flex  justify-between items-center w-36 gap-2">
+                                        <div class="flex flex-col justify-center items-center gap-2  pb-1">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <div class="w-8 h-2 bg-gray-200 rounded "></div>
+                                        </div>
+                                        <div class="flex flex-col justify-center items-center">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <p>BANK</p>
+                                        </div>
+                                        <div class="flex flex-col justify-center items-center gap-2  pb-1">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <div class="w-8 h-2 bg-gray-200 rounded "></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-4">Healthcare Provider Selection</h4>
+                                    <div class="space-y-4">
+                                        <p class="font-medium">Bank Account Details</p>
+                                        <div>
+                                            <label class="block text-sm text-gray-600 mb-1">Account name</label>
+                                            <input type="text" value="AU Bank" class="w-full border rounded-lg p-2" />
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <label class="block text-sm text-gray-600 mb-1">BSB</label>
+                                                <input type="text" value="000" class="w-full border rounded-lg p-2" />
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm text-gray-600 mb-1">Account number</label>
+                                                <input type="text" value="098764321"
+                                                    class="w-full border rounded-lg p-2" />
+                                            </div>
+                                        </div>
+                                        <button class="w-full bg-[#4338CA] text-white py-2 rounded-lg">Continue</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-semibold">
+                                <span class="text-gray-900">06/</span> Healthcare Provider Selection
+                            </h3>
+                            <p class="text-gray-600">
+                                Choose your preferred healthcare provider for medical consultations and services. Seamlessly
+                                connect with hospitals, clinics, or private physicians.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-[#4338CA] rounded-3xl p-8 shadow-lg">
+                        <div class="bg-white rounded-lg p-6 max-w-sm mx-auto">
+                            <div class="space-y-6">
+                                <div class="flex items-center justify-between">
+                                    <img src="/brand.svg" alt="Xonboard Logo" class="h-6" />
+                                    <div class="hidden  md:flex  justify-between items-center w-36 gap-2">
+                                        <div class="flex flex-col justify-center items-center gap-2  pb-1">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <div class="w-8 h-2 bg-gray-200 rounded "></div>
+                                        </div>
+                                        <div class="flex flex-col justify-center items-center">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <p>SUPER</p>
+                                        </div>
+                                        <div class="flex flex-col justify-center items-center gap-2  pb-1">
+                                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                                            <div class="w-8 h-2 bg-gray-200 rounded "></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-4">Complete your super choice</h4>
+                                    <div class="space-y-4">
+                                        <p class="text-sm text-gray-600">Select your existing super fund</p>
+                                        <button
+                                            class="w-full bg-[#FF5733] text-white py-3 px-4 rounded-lg text-left flex items-center gap-3">
+                                            <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+                                                <span class="text-[#FF5733] font-bold">P</span>
+                                            </div>
+                                            Prime Super
+                                        </button>
+                                        <button
+                                            class="w-full bg-[#3B82F6] text-white py-3 px-4 rounded-lg text-left flex items-center gap-3">
+                                            <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+                                                <span class="text-[#3B82F6] font-bold">R</span>
+                                            </div>
+                                            Routine Super
+                                        </button>
+                                        <button
+                                            class="w-full bg-[#8B5CF6] text-white py-3 px-4 rounded-lg text-left flex items-center gap-3">
+                                            <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+                                                <span class="text-[#8B5CF6] font-bold">L</span>
+                                            </div>
+                                            Layers Super
+                                        </button>
+                                        <button
+                                            class="w-full bg-gray-100 text-gray-600 py-3 px-4 rounded-lg text-center hover:bg-gray-200 transition-colors">
+                                            Help me find my super fund
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="min-h-screen bg-[#ff4274] flex justify-center p-6 py-24">
+        <div class="max-w-4xl w-full">
+            <!-- Header Section -->
+            <h1 class="text-5xl font-bold text-white mb-3">Who Can Benefit?</h1>
+            <p class="text-white text-xl mb-8">>Designed for healthcare professionals, clinics, and hospitals.</p>
+
+            <!-- Navigation Tabs -->
+            <div class="bg-white rounded-lg mb-8 py-2 px-3">
+                <div class="flex flex-wrap">
+                    <button class="px-6 py-3 rounded-lg bg-[#ff4274] text-white font-medium">
+                        Physicians
+                    </button>
+                    <button class="px-6 py-3 text-gray-700 font-medium hover:bg-gray-100 transition-colors">
+                    Clinics & Hospitals
+                    </button>
+                    <button class="px-6 py-3 text-gray-700 font-medium hover:bg-gray-100 transition-colors">
+                    Medical Transcriptionists
+                    </button>
+                    <button class="px-6 py-3 text-gray-700 font-medium hover:bg-gray-100 transition-colors">
+                    Healthcare Administrators
+                    </button>
+                    <button class="px-6 py-3 text-gray-700 font-medium hover:bg-gray-100 transition-colors">
+                        Medical Research Teams
+                    </button>
+                    <button class="px-6 py-3 text-gray-700 font-medium hover:bg-gray-100 transition-colors">
+                           Medical Research
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Card -->
+            <div class="bg-white rounded-lg p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h2 class="text-3xl font-semibold mb-4">AI-Powered Medical Documentation</h2>
+                    <p class="text-gray-600 text-black mb-8">
+                            Eliminate manual note-taking and transcription errors with AI-assisted documentation.
+                            Enhance accuracy, streamline workflows, and save valuable time for better patient care.
+                    </p>
+                    <a href="#"
+                        class="inline-flex items-center text-2xl text-[#FF4D8D] font-bold hover:text-[#FF3377] transition-colors">
+                        LEARN MORE
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 " viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="bg-[#f7d3d5] rounded-lg min-h-[300px]"></div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="min-h-screen bg-[#fff2f3] border-t-4 border-pink-300 flex flex-col items-center justify-center p-6">
+        <!-- Heading -->
+        <h1 class="text-4xl font-bold text-gray-900 mb-6 text-center">
+            Seamless Integration with EHR, Billing & Compliance Systems
+        </h1>
+
+        <!-- Button -->
+        <button class="px-6 py-3 bg-[#FF4274] text-white rounded-md font-semibold 
+           hover:bg-pink-600 transition-colors">
+            Explore Integrations
+        </button>
+    </div>
+
+
+
+    <div class="container bg-black p-4  py-20 flex flex-col   ">
+        <div class="header">
+            <h1>
+                <span class="impact">Impact</span>
+                <span class="customers-text">our customers<br>have seen</span>
+            </h1>
+        </div>
+
+        <div class="stats-group">
+            <div class="stat-card">
+                <div class="stat-number pink">15<small>seconds</small></div>
+                <div class="stat-text">TTime to generate a structured medical report</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number blue">97%</div>
+                <div class="stat-text">UIncrease in documentation accuracy with AI</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number purple">28<small>minutes</small></div>
+                <div class="stat-text">Average time saved per patient consultation</div>
+            </div>
+        </div>
+
+        <div class="testimonials-container">
+            <!-- Emma Joseph - Pink -->
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    This AI medical documentation tool has transformed how I work.<br>
+                    It allows me to focus on patient care instead of paperwork.
+                    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9">
+                        I no longer need to manually type out patient records. The AI accurately transcribes and structures
+                        everything for me, saving me hours every week.
+                    </p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ug7zTRPsvAAqaksGzXydptlCRYeq0Q.png"
+                        alt="" class="author-image">
+                    <div class="author-info">
+                        <div class="author-name">Emma Joseph</div>
+                        <div class="author-title">Employer, Fortis Recruitment</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ramsen Oraham - White -->
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    This tool simplifies documentation and integrates perfectly with my EHR system.
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ug7zTRPsvAAqaksGzXydptlCRYeq0Q.png"
+                        alt="" class="author-image">
+                    <div class="author-info">
+                        <div class="author-name">Ramsen Oraham</div>
+                        <div class="author-title">Employer, Thrive360 Care</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bridget Evans - Light Purple -->
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    Xonboard eliminates numerous emails and back and forth with the client.
+                    <p style="margin-top: 0.75rem; font-weight: 600">very slick onboarding tool.<br>Highly recommend</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ug7zTRPsvAAqaksGzXydptlCRYeq0Q.png"
+                        alt="" class="author-image">
+                    <div class="author-info">
+                        <div class="author-name">Bridget Evans</div>
+                        <div class="author-title">Advisor, Small B Accounts</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chris Arnold - Blue -->
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                AI-powered documentation eliminates the need for manual transcriptions
+                    <p style="margin-top: 0.75rem">
+                        Highly efficient and secure.<br>Highly recommend.
+                    </p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ug7zTRPsvAAqaksGzXydptlCRYeq0Q.png"
+                        alt="" class="author-image">
+                    <div class="author-info">
+                        <div class="author-name">Chris Arnold</div>
+                        <div class="author-title">Advisor</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Christine So - Dark Purple -->
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    <div class="testimonial-heading">Game Changer & Time Saver.</div>
+                    I highly recommend this system for any healthcare professional looking to improve workflow.
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ug7zTRPsvAAqaksGzXydptlCRYeq0Q.png"
+                        alt="" class="author-image">
+                    <div class="author-info">
+                        <div class="author-name">Christine So</div>
+                        <div class="author-title">Advisor, Orange Partners</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Flor Hanly - Light Blue -->
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    AI-generated patient records reduce errors and streamline the entire workflow.
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Ug7zTRPsvAAqaksGzXydptlCRYeq0Q.png"
+                        alt="" class="author-image">
+                    <div class="author-info">
+                        <div class="author-name">Flor Hanly</div>
+                        <div class="author-title">Advisor, Flor Hanly</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bg-white px-6 py-16">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                We now use this AI documentation system for clinical research and it has been incredible.
+            </h2>
+
+            <!-- Testimonial Slider -->
+            <div class="relative">
+                <!-- Slider Container -->
+                <div class="overflow-hidden">
+                    <!-- Slider Track (flex container) -->
+                    <div id="sliderTrack" class="flex transition-transform duration-300"
+                        style="transform: translateX(0%);">
+                        <!-- Review 1 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="max-w-3xl mx-auto p-4 bg-[#ffe9ea] rounded-[60px] relative shadow-lg">
+                                <div class="flex flex-col md:flex-row gap-6">
+                                    <!-- Left side: Photo with pink circle behind it -->
+                                    <div class="relative w-2/5 h-72 flex-shrink-0 bg-[#ff4274] 
+                         rounded-[60px] overflow-hidden">
+                                        <!-- Pink circle behind the portrait -->
+                                        <div class="absolute inset-0 border-2 rounded-full 
+                           bg-[#ff4274] -z-10"></div>
+
+                                        <!-- Portrait -->
+                                        <img src="man.png" alt="Adam Ingles" class="w-50 h-72 object-cover" />
+
+                                        <!-- Quick-Ratio logo (bottom-center over the photo) -->
+                                        <div class="absolute bottom-0 -right-3 z-3 bg-white 
+                           rounded-t-3xl py-3 px-3 pr-6">
+                                            <p class="font-semibold text-xl">Quick Ratio</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Right side: Text & Stars -->
+                                    <div class="w-3/5">
+                                        <!-- Star Rating -->
+                                        <div class="flex text-[#FF9500] mb-2 text-xl">
+                                            <span>★★★★★</span>
+                                        </div>
+                                        <!-- Title -->
+                                        <h3 class="text-2xl font-semibold mb-2">
+                                            No Data Entry, Just a Professional Experience—And It's Free!
+                                        </h3>
+                                        <!-- Testimonial Body -->
+                                        <p class="text-gray-700 mb-4 leading-4">
+                                            I used to spend hours after clinic hours manually documenting patient records.
+                                            With AI-powered documentation, I now generate structured reports in seconds.
+                                            This tool has transformed my workflow.
+                                        </p>
+                                        <!-- Name & Role -->
+                                        <div>
+                                            <div class="font-semibold">Adam Ingles</div>
+                                            <div class="text-gray-600">Fractional CFO at Quick-Ratio</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 2 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="max-w-3xl mx-auto p-4 bg-[#ffe9ea] rounded-[60px] 
+                     relative shadow-lg">
+                                <div class="flex flex-col md:flex-row gap-6">
+                                    <!-- Left side: Photo -->
+                                    <div class="relative w-2/5 h-72 flex-shrink-0 bg-[#ff4274] 
+                         rounded-[60px] overflow-hidden">
+                                        <div class="absolute inset-0 border-2 rounded-full 
+                           bg-[#ff4274] -z-10"></div>
+                                        <img src="man.png" alt="Adam Ingles" class="w-50 h-72 object-cover" />
+                                        <div class="absolute bottom-0 -right-3 z-3 bg-white 
+                           rounded-t-3xl py-3 px-3 pr-6">
+                                            <p class="font-semibold text-xl">Quick Ratio</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Right side: Text & Stars -->
+                                    <div class="w-3/5">
+                                        <div class="flex text-[#FF9500] mb-2 text-xl">
+                                            <span>★★★★★</span>
+                                        </div>
+                                        <h3 class="text-2xl font-semibold mb-2">
+                                            No Data Entry, Just a Professional Experience—And It's Free!
+                                        </h3>
+                                        <p class="text-gray-700 mb-4 leading-4">
+                                        Our hospital staff now spends **70% less time on paperwork**
+                                        and more time on patient care. This AI system is
+                                        **incredibly intuitive and efficient**.
+                                        </p>
+                                        <div>
+                                            <div class="font-semibold">Adam Ingles</div>
+                                            <div class="text-gray-600">Fractional CFO at Quick-Ratio</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 3 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="max-w-3xl mx-auto p-4 bg-[#ffe9ea] rounded-[60px] 
+                     relative shadow-lg">
+                                <div class="flex flex-col md:flex-row gap-6">
+                                    <!-- Left side: Photo -->
+                                    <div class="relative w-2/5 h-72 flex-shrink-0 bg-[#ff4274] 
+                         rounded-[60px] overflow-hidden">
+                                        <div class="absolute inset-0 border-2 rounded-full 
+                           bg-[#ff4274] -z-10"></div>
+                                        <img src="man.png" alt="Adam Ingles" class="w-50 h-72 object-cover" />
+                                        <div class="absolute bottom-0 -right-3 z-3 bg-white 
+                           rounded-t-3xl py-3 px-3 pr-6">
+                                            <p class="font-semibold text-xl">Quick Ratio</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Right side: Text & Stars -->
+                                    <div class="w-3/5">
+                                        <div class="flex text-[#FF9500] mb-2 text-xl">
+                                            <span>★★★★★</span>
+                                        </div>
+                                        <h3 class="text-2xl font-semibold mb-2">
+                                            No Data Entry, Just a Professional Experience—And It's Free!
+                                        </h3>
+                                        <p class="text-gray-700 mb-4 leading-4">
+                                            When I created my firm, I wanted to build something that put
+                                            technology first...
+                                        </p>
+                                        <div>
+                                            <div class="font-semibold">Adam Ingles</div>
+                                            <div class="text-gray-600">Fractional CFO at Quick-Ratio</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of Reviews -->
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons (Prev/Next) -->
+                <button class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12
+               bg-white rounded-full shadow-lg flex items-center justify-center
+               hover:bg-gray-50 transition-colors" onclick="prevSlide()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+
+                <button class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12
+               bg-white rounded-full shadow-lg flex items-center justify-center
+               hover:bg-gray-50 transition-colors" onclick="nextSlide()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+
+                <!-- Dots Navigation -->
+                <div class="flex justify-center gap-2 mt-8">
+                    <button class="dot w-3 h-3 rounded-full transition-colors bg-[#FF4D8D]"
+                        onclick="goToSlide(1)"></button>
+                    <button class="dot w-3 h-3 rounded-full transition-colors bg-gray-200"
+                        onclick="goToSlide(2)"></button>
+                    <button class="dot w-3 h-3 rounded-full transition-colors bg-gray-200"
+                        onclick="goToSlide(3)"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Get Started Card -->
+    <div class="bg-[#FF4D8D] px-6 py-24 flex justify-center items-center">
+        <div class="max-w-3xl mx-auto- shadow-d">
+            <!-- Main Card with enhanced shadow -->
+            <div class="relative bg-white rounded-[24px] p-8 shadow-[0_20px_40px_rgba(0,0,0,0.1)] ">
+
+                <!-- Rating Badge with rotation and shadow -->
+                <!-- "bg-gray-50" for light-grey background, "border border-white" for white edge -->
+                <div class="absolute right-6 -top-6 transform rotate-3 bg-gray-50 border border-white
+               rounded-full shadow-lg flex items-center gap-2 px-4 py-4 z-10">
+                    <!-- Stars -->
+                    <div class="flex text-black">
+                        <span class="text-lg">★★★★</span>
+                        <span class="text-lg text-gray-300">★</span>
+                    </div>
+                    <span class="font-semibold text-black">4.9 Stars</span>
+                    <!-- Pink pill for reviews -->
+                    <span class="bg-[#FF4D8D] text-white rounded-full px-3 py-1 text-sm whitespace-nowrap">
+                        20+ Reviews
+                    </span>
+                </div>
+
+                <!-- Content: Heading/Paragraph on the left, Buttons on the right -->
+                <!-- On smaller screens, they stack (flex-col); on md+ screens, they sit side-by-side (flex-row). -->
+                <div class="flex flex-col  items-start  justify-between gap-6">
+                    <!-- Left side: Heading & Paragraph -->
+                    <div>
+                        <h2 class="text-4xl font-bold  leading-tight">
+                            Start Automating Medical Documentation Today!
+                        </h2>
+                    </div>
+
+                    <!-- Right side: Buttons -->
+                    <div class="flex justify-between items-center w-full ">
+                        <p class="text-gray-600 text-lg">
+                            Enhance accuracy, save time, and reduce documentation workload with AI-powered medical reports.
+                        </p>
+
+                        <div>
+                            <button
+                                class="px-6 py-2 bg-[#FF4D8D] text-white rounded-lg shadow-md hover:bg-[#FF3377] transition-all hover:shadow-lg">
+                                Book a demo
+                            </button>
+                            <button
+                                class="px-6 py-2 bg-white text-gray-800 rounded-lg shadow-md border border-gray-100 hover:border-gray-200 transition-all hover:shadow-lg">
+                                Start free
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-[#1A202C] text-white px-4 sm:px-6 py-8 sm:py-16">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-8">
+                <!-- Logo Column -->
+                <div class="col-span-2 md:col-span-2">
+                    <img src="brand.svg" alt="Xonboard Logo" class="h-12 mb-6" />
+                    <div class="flex gap-4 mb-6">
+                        <img src="/badge1.png" alt="Xero Partner" class="h-20" />
+                    </div>
+                </div>
+
+                <!-- Product Column -->
+                <div class="col-span-1">
+                    <h3 class="font-semibold mb-4">Product</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Reviews</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">How it works</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Roadmap</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Column -->
+                <div class="col-span-1">
+                    <h3 class="font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support Column -->
+                <div class="col-span-1">
+                    <h3 class="font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Getting started</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Help center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Server status</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Report a bug</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Chat support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="col-span-1">
+                    <h3 class="font-semibold mb-4">Contact us</h3>
+                    <ul class="space-y-2">
+                        <li><a href="mailto:contact@xonboard.com.au"
+                                class="text-gray-400 hover:text-white transition-colors">contact@xonboard</a>
+                        </li>
+                        <li><span class="text-gray-400">(414) 687 - 5892</span></li>
+                        <li><span class="text-gray-400">L9 505 Little Collins Street<br>Melbourne 3000</span></li>
+                    </ul>
+                </div>
+            </div>
+`
+            <!-- Bottom Bar -->
+            <div
+                class="mt-8 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="text-gray-400 text-sm">Copyright © 2024 Xonboard</div>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Terms and
+                        Conditions</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+                </div>
+                <div class="flex gap-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0C5.374 0 0 5.374 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.626-5.374-12-12-12z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+
+
+</body>
+
+</html>
